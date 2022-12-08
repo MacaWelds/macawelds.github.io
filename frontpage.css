@@ -9,7 +9,7 @@
 }
 .info {
 
-    display:flexbox;
+    display:display-box;
     background-color:rgba(0, 0, 0, 0.2);
     margin: 10px;
     border-top-left-radius: 5%;
