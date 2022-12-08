@@ -61,7 +61,7 @@ h4 {
 
 h5 {
     display: flexbox;
-    font-size: 50px;
+    font-size:1em;
     font-weight: bolder;
     font-style: italic;
     position: relative;
