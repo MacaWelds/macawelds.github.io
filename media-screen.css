@@ -14,7 +14,7 @@
 @media only screen and (min-width: 100px) {
     body {
         background-color: grey;
-        background-image: url(Images/backgrounds/welding_sparks_portrait.jpg);
+        background-image: url(https://github.com/MacaWelds/macawelds.github.io/blob/main/Images/backgrounds/welding_sparks_portrait.jpg);
         background-size: cover;
         background-position: fixed;
         background-repeat: no-repeat;
