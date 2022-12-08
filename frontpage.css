@@ -1,0 +1,40 @@
+.job {
+
+    display:flexbox;
+    background-color:rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    border-top-left-radius:5%;
+    border-top-right-radius: 5%;
+
+}
+.info {
+
+    display:flexbox;
+    background-color:rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+.rowsinfo {
+    margin: 10px 10px;
+}
+
+/* Add padding BETWEEN each column */
+.rowsinfo,
+.rowsinfows>.columnsinfo {
+    padding: 5px;
+}
+
+/* Create four equal columns that floats next to each other */
+.columnsinfo {
+    float: right;
+    width: 25%;
+}
+
+/* Clear floats after rows */
+.rowsinfo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
