@@ -36,8 +36,8 @@
     background-size: contain;
     width: fit-content;
     position: relative;
-    left: 0%;
-    text-align: center;
+    left: 40%;
+    text-align: left;
     font-size: 60px;
     font-style: italic;
     text-shadow: 5px 5px black;
@@ -50,7 +50,7 @@
     background-size: contain;
     width: fit-content;
     position: relative;
-    left: 40%;
+    left: 0%;
     text-align: center;
     font-size: 80px;
     font-style: italic;
