@@ -4,14 +4,16 @@ section {
     background-color: blanchedalmond;
     background-size: auto;
     background-position: center;
-    width: fit-content;
     text-align: center;
     font-size: 12px;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
     padding-bottom: 1px;
-    padding-left: 1px;
+    padding-left: 1%;
+    padding-right: 1%;
     margin-left: 5%;
+    margin-right: 5%;
+
 }
 
 .hours {
@@ -48,9 +50,8 @@ section {
 .greeting {
     display: flexbox;
     background-color: bisque;
-    font-size: 50px;
+    font-size: 3rem;
     text-align: center;
-    width: 100%;
     margin: 7%;
     border-radius: 25px;
     border: 2px double black;
