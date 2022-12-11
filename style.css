@@ -50,7 +50,7 @@ section {
 .greeting {
     display: flexbox;
     background-color: bisque;
-    font-size: 3rem;
+    font-size: 5vw;
     text-align: center;
     margin: 7%;
     border-radius: 25px;
