@@ -32,3 +32,5 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 }
+
+document.getElementById('01').style.display="none";

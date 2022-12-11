@@ -1,7 +1,7 @@
 .footer {
     background-size: contain;
     width: fit-content;
-    height: fit-content;
+    height: 10px;
     position: fixed;
     bottom: 2%;
     left: 2%;
@@ -9,6 +9,11 @@
     text-align: left;
 }
 
+.footer:hover {
+
+    height: fit-content;
+    
+}
 .material-icons:hover {
  box-shadow: 5px 5px 5px;
 }
