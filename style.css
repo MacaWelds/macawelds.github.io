@@ -6,8 +6,7 @@ section {
     background-position: center;
     text-align: center;
     font-size: 12px;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-radius: 24px;
     padding-bottom: 1px;
     padding-left: 1%;
     padding-right: 1%;
@@ -52,7 +51,7 @@ section {
     background-color: bisque;
     font-size: 5vw;
     text-align: center;
-    margin: 7%;
+    margin: 2%;
     border-radius: 25px;
     border: 2px double black;
     

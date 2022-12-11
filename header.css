@@ -71,7 +71,7 @@ h5 {
 
 h6 {
     display: flexbox;
-    font-size: 50px;
+    font-size: 2vw;
     font-weight: bolder;
     font-style: italic;
     position: relative;
@@ -84,7 +84,6 @@ h6 {
     border: 5px double black;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-
     margin: 10px;
     position: relative;
     top: 10px;
