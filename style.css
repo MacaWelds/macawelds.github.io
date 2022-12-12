@@ -70,7 +70,7 @@ section {
 
 /* is the container that holds FAQ questions */
 .FAQ {
-    display: flexbox;
+    display: block;
     background-color: bisque;
     border: 10px double green;
     background-size: contain;
