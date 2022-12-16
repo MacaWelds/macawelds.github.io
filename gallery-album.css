@@ -10,7 +10,7 @@
 
 .gallery {
     display: block;
-    background-size: cover;
+    background-size: contain;
     background-color: blanchedalmond;
     margin: 5%;
     padding: 1%;
