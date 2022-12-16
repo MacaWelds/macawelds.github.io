@@ -67,8 +67,7 @@
 }
 
 .row {
-    margin: 8px -16px;
-    border: 3px double black;
+    margin: 8px;
 
 }
 
@@ -96,7 +95,6 @@
 .content {
     background-color: oldlace;
     padding: 1%;
-    border: 1px solid black;
     
 
 }
