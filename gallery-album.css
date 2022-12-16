@@ -59,12 +59,6 @@
     clear: both;
 }
 
-/* Content */
-.content {
-    background-color: grey;
-    padding: 5px;
-
-}
 
 .row {
     margin: 8px;
@@ -94,6 +88,7 @@
 /* Content */
 .content {
     background-color: oldlace;
+    margin-top: 2%;
     padding: 1%;
     
 
