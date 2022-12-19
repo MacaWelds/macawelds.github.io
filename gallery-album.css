@@ -33,7 +33,7 @@
 .pic {
     display: inline-flexbox;
     border: 5px double black;
-    width: 35%;
+    width: fit-content;
     height: 100%;
 }
 
