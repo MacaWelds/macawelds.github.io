@@ -38,11 +38,11 @@ section {
 
 .mail {
 
-    font-size: 2vw;
+    font-size: 1vw;
 }
 
 .mail:hover {
-    font-size: 3vw;
+    font-size: 1vw;
     box-shadow: 5px 5px 5px;
 }
 

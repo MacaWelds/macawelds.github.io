@@ -8,33 +8,13 @@
     padding: 1%;
     text-align: left;
 }
-/*
-.topnav a {
-    position: fixed;
-    background-color: aliceblue;
-    top: 0%;
-    left: 0%;
-    height: 25px;
-    width: auto;
-    color: black;
-    text-align: right;
-    font-size: 4vw;
-    padding-right: 1%;
-    padding-top: 1%;
-}
-/*
-.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    left: 0%;
-}
-*/
+
 
 .call {
     display: flexbox;
     background-size: contain;
     width: fit-content;
+    height: fit-content;
     position: relative;
     left: 40%;
     text-align: left;
@@ -52,9 +32,8 @@
     position: relative;
     left: 40%;
     text-align: center;
-    font-size: 80px;
+    font-size: 60px;
     font-style: italic;
-    text-shadow: 10px 10px red;
     color: black;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
