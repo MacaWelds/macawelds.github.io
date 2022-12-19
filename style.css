@@ -54,6 +54,7 @@ section {
     margin: 2%;
     border-radius: 25px;
     border: 2px double black;
+    width: fit-content;
     
 }
 
