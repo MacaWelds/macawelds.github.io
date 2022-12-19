@@ -1,7 +1,7 @@
 .topnav {
     background-size: contain;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
     position: fixed;
     top: 2%;
     left: 2%;
