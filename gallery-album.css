@@ -15,7 +15,7 @@
     margin: 5%;
     padding: 1%;
     border: 5px double black;
-    border-radius: 10px;
+    border-radius: 20px;
 
 }
 
@@ -38,13 +38,13 @@
 }
 
 .rows {
-    margin: 1px 16px;
+    margin: 16px 16px;
 }
 
 /* Add padding BETWEEN each column */
 .rows,
 .rows>.columns {
-    padding: 10px;
+    padding: 1%;
 }
 
 /* Create four equal columns that floats next to each other */
@@ -52,7 +52,6 @@
     float: right;
     width: 100%;
     margin: 1%;
-    border-radius: 20px;
 }
 
 /* Clear floats after rows */
