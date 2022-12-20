@@ -9,7 +9,7 @@
 }
 
 .gallery {
-    display: block;
+    display: flexbox;
     background-size: contain;
     background-color: blanchedalmond;
     margin: 5%;
@@ -51,6 +51,7 @@
 .columns {
     float: right;
     width: 100%;
+    margin: 1%;
     border-radius: 20px;
 }
 
