@@ -1,9 +1,11 @@
 /*  this is all the differant classes created for the div needed */
 
-PROMO {
+
+.PROMO {
 
     font-size: 1vw;
 }
+
 section {
     background-color: blanchedalmond;
     background-size: auto;
@@ -22,8 +24,8 @@ section {
 .hours {
     display: flexbox;
     background-color: bisque;
-    position:relative;
-    left:30%;
+    position: relative;
+    left: 30%;
     border: 10px double green;
     background-size: contain;
     width: fit-content;
@@ -58,8 +60,8 @@ section {
     margin: 2%;
     border-radius: 25px;
     border: 2px double black;
-width: fit-content;
-    
+    width: 95%;
+
 }
 
 .About {
