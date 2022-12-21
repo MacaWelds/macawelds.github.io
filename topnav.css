@@ -15,10 +15,10 @@
     background-size: contain;
     width: fit-content;
     height: fit-content;
-    position: relative;
+    position: fixed;
     left: 40%;
     text-align: left;
-    font-size: 60px;
+    font-size: 40px;
     font-style: italic;
     text-shadow: 5px 5px black;
     color: red;
@@ -32,7 +32,7 @@
     position: relative;
     left: 40%;
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
     font-style: italic;
     color: black;
     text-transform: uppercase;
