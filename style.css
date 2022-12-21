@@ -51,14 +51,14 @@ section {
 }
 
 .greeting {
-    display: block;
+    display: flexbox;
     background-color: bisque;
     font-size: 5vw;
     text-align: center;
     margin: 2%;
     border-radius: 25px;
     border: 2px double black;
-
+width: fit-content;
     
 }
 
@@ -237,9 +237,4 @@ section {
     left: 1%;
     text-align: center;
 
-}
-
-.figcaption {
-
-    font-size:20px;
 }
