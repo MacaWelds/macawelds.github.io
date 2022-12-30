@@ -59,12 +59,9 @@ h4 {
 
 h5 {
     display: flexbox;
-    font-size:1vw;
     font-weight: bolder;
     font-style: italic;
-    position: relative;
-    margin-top: 0%;
-    margin-left: 1%;
+    margin-top: 1%;
     font-size: 4vw;
 
 }

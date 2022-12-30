@@ -33,10 +33,18 @@
 .pic {
     display: inline-flexbox;
     border: 5px double black;
-    width: 95%;
+    width: 90%;
     height: 100%;
+    padding-top: 5%;
 }
 
+.picg {
+display:inline-flexbox;
+border: 5px double black;
+width: 50%;
+padding-top: 1%;
+
+}
 .rows {
     margin: 16px 16px;
 }
@@ -76,7 +84,7 @@
 /* Create four equal columns that floats next to each other */
 .column {
     float: left;
-    width: 50%;
+    width: 25%;
     
 }
 
