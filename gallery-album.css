@@ -58,7 +58,7 @@ padding-top: 1%;
 /* Create four equal columns that floats next to each other */
 .columns {
     float: right;
-    width: 100%;
+    width: 50%;
     margin: 1%;
 }
 
