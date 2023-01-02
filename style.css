@@ -2,12 +2,14 @@
 
 
 .PROMO {
-display: none;
-    font-size: 1vw;
+    display: flexbox;
+    font-size: 2vw;
+    text-align: center;
 }
-.PROMO:hover {
 
-    display: block;
+.PROMO:hover {
+    display: flexbox;
+
 }
 
 section {
@@ -24,6 +26,7 @@ section {
     margin-right: 5%;
 
 }
+
 /* sticky container that shows open hours */
 .hours {
     display: flexbox;
