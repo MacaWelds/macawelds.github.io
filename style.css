@@ -108,11 +108,11 @@ section {
 
     display: flexbox;
     background-color: antiquewhite;
-    position: absolute;
-    left: 25%;
+    position: relative;
+    left: 45%;
     width: fit-content;
-    border-radius: 40%;
-    border: 5px solid black;
+    border-radius: 4px;
+    border: 2px solid black;
 
 }
 
