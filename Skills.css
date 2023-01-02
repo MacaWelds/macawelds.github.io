@@ -1,12 +1,12 @@
 .skills {
     display: flexbox;
     background-color: bisque;
-    border: 10px double green;
+    border: 10px double black;
     background-size: contain;
     width: fit-content;
     border-radius: 0px 0px 20px 20px;
     padding: 1px;
-    margin-right: 20%;
+    margin-right: 20px;
     font-size: 1vw;
     box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -20,12 +20,12 @@
 .criteria {
     display: flexbox;
     background-color: bisque;
-    border: 10px double green;
+    border: 10px double black;
     background-size: contain;
     width: fit-content;
     border-radius: 0px 0px 20px 20px;
     padding: 1px;
-    margin-right: 20%;
+    margin-right: 20px;
     margin-left: 55px;
     font-size: 1vw;
     box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.5);
@@ -41,12 +41,12 @@
 .learning {
     display: flexbox;
     background-color: bisque;
-    border: 10px double green;
+    border: 10px double black;
     background-size: contain;
     width: fit-content;
     border-radius: 0px 0px 20px 20px;
     padding: 1px;
-    margin-right: 20%;
+    margin-right: 20px;
     font-size: 1vw;
     box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.5);
 
