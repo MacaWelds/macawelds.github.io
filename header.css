@@ -53,16 +53,18 @@ h4 {
     display: flexbox;
     width: 90%;
     text-align: center;
-    font-size: 2vw;
+    font-size: 3vw;
 
 }
 
 h5 {
     display: flexbox;
+    width: fit-content;
     font-weight: bolder;
     font-style: italic;
     margin-top: 1%;
-    font-size: 4vw;
+    font-size: 3vw;
+    text-shadow: 5px 5px 10px;
 
 }
 
