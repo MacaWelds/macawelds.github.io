@@ -2,9 +2,10 @@
 
     display:flexbox;
     background-color:rgba(0, 0, 0, 0.2);
-    margin: 10px;
-    border-top-left-radius:5%;
-    border-top-right-radius: 5%;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-top-left-radius:20%;
+    border-top-right-radius: 20%;
 
 }
 .hoursinfo{
@@ -28,26 +29,26 @@
 }
 .info {
 
-    display:display-box;
+    display:flexbox;
     background-color:rgba(0, 0, 0, 0.2);
-    margin: 10px;
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
+    margin-left: 1px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
 }
 .rowsinfo {
-    margin: 10px 10px;
+    margin: 20px 20px;
 }
 
 /* Add padding BETWEEN each column */
 .rowsinfo,
-.rowsinfows>.columnsinfo {
-    padding: 5px;
+.rowsinfo>.columnsinfo {
+    padding: 30px;
 }
 
 /* Create four equal columns that floats next to each other */
 .columnsinfo {
-    float: right;
-    width: 50%;
+    float: left;
+    width: 20%;
 }
 
 /* Clear floats after rows */
