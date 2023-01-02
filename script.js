@@ -18,7 +18,7 @@ function clickCounter() {
   }
 }
 
-const x = document.getElementById("demo");
+const x = document.getElementById("gps");
     
 function getLocation() {
   try {

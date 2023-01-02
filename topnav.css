@@ -30,7 +30,7 @@
     display: flexbox;
     background-size: contain;
     width: fit-content;
-    position: fixed;
+    position: sticky;
     left: 50%;
     text-align: left;
     font-size: 40px;
