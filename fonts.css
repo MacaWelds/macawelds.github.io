@@ -2,7 +2,10 @@ a {
 
     font-size:20px;
 }
+b {
 
+    font-size: 20px;
+}
 p {
 
     font-size: 20px;
@@ -17,7 +20,10 @@ FAQ {
 
     color: black;
 }
+caption {
 
+    font-size: 20px;
+}
 .description {
     border: 1px solid black;
     background-color: whitesmoke;
