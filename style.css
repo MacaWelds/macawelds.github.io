@@ -2,8 +2,12 @@
 
 
 .PROMO {
-
+display: none;
     font-size: 1vw;
+}
+.PROMO:hover {
+
+    display: block;
 }
 
 section {
