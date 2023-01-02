@@ -26,7 +26,7 @@
     border: 5px double black;
     width: 100%;
     padding: 1%;
-    margin:1%;
+    margin: 1%;
     border-radius: 20px;
 }
 
@@ -38,12 +38,13 @@
 }
 
 .picg {
-display:inline-flexbox;
-border: 5px double black;
-width: 70%;
-padding: 1%;
+    display: inline-flexbox;
+    border: 5px double black;
+    width: 70%;
+    padding: 1%;
 
 }
+
 .rows {
     margin: 1px 16px;
 }
@@ -79,11 +80,11 @@ padding: 1%;
     padding: 8px;
 }
 
-/* Create four equal columns that floats next to each other */
+/* Create equal columns (100/?=x) that floats next to each other */
 .column {
     float: left;
     width: 20%;
-    
+
 }
 
 /* Clear floats after rows */
@@ -93,7 +94,7 @@ padding: 1%;
     clear: both;
 }
 
-/* Content */
+/* the container used to house items */
 .content {
     display: flexbox;
     background-color: oldlace;
@@ -102,7 +103,7 @@ padding: 1%;
     width: contain;
     border-radius: 20px 20px;
     box-shadow: 5px 5px 5px;
-opacity: 0.5;
+    opacity: 0.5;
 }
 
 .content:hover {
