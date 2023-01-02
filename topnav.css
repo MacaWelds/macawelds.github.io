@@ -13,10 +13,10 @@
 .call {
     display: flexbox;
     background-size: contain;
-    width: max-content;
-    height: max-content;
-    position: fixed;
-    left: 2%;
+    width: fit-content;
+    height: fit-content;
+    position: sticky;
+    left: 20%;
     top: 1%;
     text-align: left;
     font-size: 40px;
@@ -31,7 +31,7 @@
     background-size: contain;
     width: fit-content;
     position: fixed;
-    left: 2%;
+    left: 20%;
     text-align: left;
     font-size: 40px;
     font-style: italic;
