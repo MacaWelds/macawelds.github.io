@@ -16,7 +16,7 @@
     width: fit-content;
     height: fit-content;
     position: sticky;
-    left: 20%;
+    left: 50%;
     top: 1%;
     text-align: left;
     font-size: 40px;
@@ -31,7 +31,7 @@
     background-size: contain;
     width: fit-content;
     position: fixed;
-    left: 20%;
+    left: 50%;
     text-align: left;
     font-size: 40px;
     font-style: italic;
