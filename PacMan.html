@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pac-Man</title>
+    <style>
+        pre {
+            font-family: monospace;
+            font-size: 20px;
+            line-height: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <pre id="game-board"></pre>
+
+    <script>
+        const gameBoard = [
+            "#############",
+            "#           #",
+            "#           #",
+            "#   ######  #",
+            "#   #   ##  #",
+            "# P #   ##  #",
+            "#   #   ##  #",
+            "#   ######  #",
+            "#           #",
+            "#           #",
+            "#############",
+        ];
+
+        let pacMan = findCharacter("P");
+        let ghost = findCharacter("G");
+
+        function renderGameBoard() {
+            const boardElement = document.getElementById("game-board");
+            boardElement.innerHTML = gameBoard.map(row => row + "<br>").join("");
+        }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowUp") {
+                moveCharacter(pacMan, -1, 0);
+            } else if (event.key === "ArrowDown") {
+                moveCharacter(pacMan, 1, 0);
+            } else if (event.key === "ArrowLeft") {
+                moveCharacter(pacMan, 0, -1);
+            } else if (event.key === "ArrowRight") {
+                moveCharacter(pacMan, 0, 1);
+            }
+        });
+
+        setInterval(moveGhost, 1000);
+
+        function moveCharacter(character, rowOffset, colOffset) {
+            const newRow = character.row + rowOffset;
+            const newCol = character.col + colOffset;
+
+            if (isValidMove(newRow, newCol)) {
+                gameBoard[character.row] = setCharAt(gameBoard[character.row], character.col, " ");
+                gameBoard[newRow] = setCharAt(gameBoard[newRow], newCol, character.symbol);
+                character.row = newRow;
+                character.col = newCol;
+                renderGameBoard();
+            }
+        }
+
+        function moveGhost() {
+            const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+            const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+            moveCharacter(ghost, randomDirection[0], randomDirection[1]);
+        }
+
+        function findCharacter(symbol) {
+            for (let row = 0; row < gameBoard.length; row++) {
+                const col = gameBoard[row].indexOf(symbol);
+                if (col !== -1) {
+                    return { row, col, symbol };
+                }
+            }
+        }
+
+        function isValidMove(row, col) {
+            return row >= 0 && row < gameBoard.length && col >= 0 && col < gameBoard[row].length &&
+                gameBoard[row][col] !== "#";
+        }
+
+        function setCharAt(str, index, char) {
+            return str.substring(0, index) + char + str.substring(index + 1);
+        }
+
+        renderGameBoard();
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="./Images/Screenshot_20230617_062124_Wallet.jpg"><i class="material-icons" style="font-size:30px; color:red;">Bitcoin Donations</i></a>
+</body>
+
+</html>

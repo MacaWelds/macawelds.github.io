@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Snake Game</title>
+    <style>
+        #game-board {
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+
+        .cell {
+            width: 20px;
+            height: 20px;
+        }
+
+        #high-score {
+            margin-top: 10px;
+        }
+
+        #name-input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Snake Game</h1>
+    <div id="game-board"></div>
+    <div id="high-score">
+        <h3>High Score: <span id="score">0</span></h3>
+        <h4>Enter your name:</h4>
+        <input type="text" id="name-input">
+    </div>
+
+    <script>
+        const ROWS = 20;
+        const COLS = 20;
+        const CELL_SIZE = 20;
+        const INITIAL_SPEED = 200;
+
+        const gameBoardElement = document.getElementById("game-board");
+        const scoreElement = document.getElementById("score");
+        const nameInputElement = document.getElementById("name-input");
+
+        let snake = [{ row: 10, col: 10 }];
+        let direction = "right";
+        let food = { row: getRandomNumber(ROWS), col: getRandomNumber(COLS) };
+        let intervalId = null;
+        let score = 0;
+        let highScores = [];
+
+        function initializeGame() {
+            clearInterval(intervalId);
+            snake = [{ row: 10, col: 10 }];
+            direction = "right";
+            food = { row: getRandomNumber(ROWS), col: getRandomNumber(COLS) };
+            score = 0;
+            renderGameBoard();
+            renderScore();
+            renderHighScore();
+            intervalId = setInterval(moveSnake, INITIAL_SPEED);
+        }
+
+        function renderGameBoard() {
+            gameBoardElement.innerHTML = "";
+            for (let row = 0; row < ROWS; row++) {
+                for (let col = 0; col < COLS; col++) {
+                    const cell = document.createElement("div");
+                    cell.classList.add("cell");
+                    if (isSnakeCell(row, col)) {
+                        cell.classList.add("snake");
+                    } else if (isFoodCell(row, col)) {
+                        cell.classList.add("food");
+                    }
+                    gameBoardElement.appendChild(cell);
+                }
+            }
+        }
+
+        function renderScore() {
+            scoreElement.textContent = score;
+        }
+
+        function renderHighScore() {
+            let highScoreText = "High Scores:<br>";
+            for (let i = 0; i < highScores.length; i++) {
+                highScoreText += `${i + 1}. ${highScores[i].name}: ${highScores[i].score}<br>`;
+            }
+            document.getElementById("high-score").innerHTML = highScoreText;
+        }
+
+        function moveSnake() {
+            const head = getSnakeHead();
+            const newHead = getNextHead(head);
+
+            if (isCollision(newHead)) {
+                handleCollision();
+                return;
+            }
+
+            snake.unshift(newHead);
+
+            if (!isFoodCell(newHead.row, newHead.col)) {
+                snake.pop();
+            } else {
+                score++;
+                generateNewFood();
+            }
+
+            renderGameBoard();
+            renderScore();
+        }
+
+        function handleCollision() {
+            clearInterval(intervalId);
+            const playerName = prompt("Game over! Enter your name:");
+            if (playerName) {
+                const newHighScore = { name: playerName, score };
+                highScores.push(newHighScore);
+                highScores.sort((a, b) => b.score - a.score);
+                if (highScores.length > 10) {
+                    highScores.pop();
+                }
+                renderHighScore();
+            }
+            initializeGame();
+        }
+
+        function generateNewFood() {
+            while (true) {
+                const newRow = getRandomNumber(ROWS);
+                const newCol = getRandomNumber(COLS);
+                if (!isSnakeCell(newRow, newCol)) {
+                    food = { row: newRow, col: newCol };
+                    break;
+                }
+            }
+        }
+
+        function getRandomNumber(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function getSnakeHead() {
+            return snake[0];
+        }
+
+        function getNextHead(head) {
+            const newHead = { row: head.row, col: head.col };
+
+            if (direction === "up") {
+                newHead.row--;
+            } else if (direction === "down") {
+                newHead.row++;
+            } else if (direction === "left") {
+                newHead.col--;
+            } else if (direction === "right") {
+                newHead.col++;
+            }
+
+            return newHead;
+        }
+
+        function isCollision(position) {
+            return (
+                position.row < 0 ||
+                position.row >= ROWS ||
+                position.col < 0 ||
+                position.col >= COLS ||
+                isSnakeCell(position.row, position.col)
+            );
+        }
+
+        function isSnakeCell(row, col) {
+            return snake.some((cell) => cell.row === row && cell.col === col);
+        }
+
+        function isFoodCell(row, col) {
+            return food.row === row && food.col === col;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "ArrowUp" && direction !== "down") {
+                direction = "up";
+            } else if (event.key === "ArrowDown" && direction !== "up") {
+                direction = "down";
+            } else if (event.key === "ArrowLeft" && direction !== "right") {
+                direction = "left";
+            } else if (event.key === "ArrowRight" && direction !== "left") {
+                direction = "right";
+            }
+        }
+
+        document.addEventListener("keydown", handleKeyPress);
+        initializeGame();
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <a href="./Images/Screenshot_20230617_062124_Wallet.jpg"><i class="material-icons" style="font-size:30px; color:red;">Bitcoin Donations</i></a>
+</body>
+
+</html>
