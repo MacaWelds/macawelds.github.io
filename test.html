@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Online Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+    }
+
+    header {
+      background-color: #232f3e;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .Products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      display: inline-block;
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .menu li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .menu li a:hover {
+      color: #ff9900;
+    }
+
+    .menu ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #232f3e;
+      padding: 10px 0;
+    }
+
+    .menu li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #232f3e;
+      padding: 10px;
+      z-index: 1;
+      min-width: 150px;
+    }
+
+    .menu li:hover ul {
+      display: block;
+    }
+
+    .menu ul li {
+      display: block;
+      margin: 0;
+    }
+
+    .menu ul li a {
+      color: #ffffff;
+      font-weight: normal;
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+
+    .menu ul li a:hover {
+      color: #ff9900;
+    }
+
+    .website-name {
+      font-size: 28px;
+      margin-top: 30px;
+      letter-spacing: 2px;
+    }
+
+    section {
+      padding: 25px;
+      text-align: justify;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      width: 200px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .contact-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-item p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .map-container {
+      margin-top: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
+
+    .service-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+
+    .service-description {
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.5;
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 20px;
+      max-width: 600px;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .thumbnail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .thumbnail:hover {
+      transform: translateY(-50px);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .thumbnail img:hover {
+      transform: scale(1.5);
+      transition: transform 0.3s ease;
+    }
+
+    .thumbnail .details {
+      padding: 5px;
+      font-size: 16px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .thumbnail .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .add-to-cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .quantity-box {
+      width: 30px;
+      height: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      text-align: center;
+      margin-right: 5px;
+    }
+
+    .add-to-cart-button {
+      background-color: #ff9900;
+      color: #ffffff;
+      border: 1px solid #dddddd;
+      padding: 5px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-to-cart-button:hover {
+      background-color: #e58300;
+    }
+
+    .footer {
+      background-color: #232f3e;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .thumbnails {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .thumbnail {
+        max-width: calc(50% - 10px);
+      }
+
+      .thumbnails img {
+        width: 100%;
+      }
+    }
+
+    /* CSS styles for the floating cart */
+    .floating-cart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #a7a7a7;
+      padding: 20px;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-cart .cart-items {
+      margin-bottom: 10px;
+    }
+
+    .floating-cart .cart-items p {
+      margin: 0;
+      padding: 5px;
+      position: relative;
+    }
+
+    .floating-cart .cart-total {
+      font-weight: bold;
+    }
+
+    .floating-cart .place-order-button {
+      background-color: #ff9900;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .floating-cart .place-order-button:hover {
+      background-color: lime;
+    }
+
+    .cart-items div {
+      margin-bottom: 10px;
+    }
+
+    .cart-items div span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .cart-items div button {
+      background-color: #ffc400;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .cart-items div button:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="website-name">My Online Store</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Products</a>
+          <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="http://192.168.1.76">trial</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Featured Products</h2>
+    <div class="Products">
+      <div class="thumbnail">
+        <img src="product1.jpg" alt="Product 1">
+        <div class="details">
+          <p class="price">$19.99</p>
+          <p class="name">Product 1</p>
+        </div>
+        <div class="add-to-cart">
+          <input type="number" class="quantity-box" value="1" min="1">
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <img src="product2.jpg" alt="Product 2">
+        <div class="details">
+          <p class="price">$29.99</p>
+          <p class="name">Product 2</p>
+        </div>
+        <div class="add-to-cart">
+          <input type="number" class="quantity-box" value="1" min="1">
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <img src="product3.jpg" alt="Product 3">
+        <div class="details">
+          <p class="price">$39.99</p>
+          <p class="name">Product 3</p>
+        </div>
+        <div class="add-to-cart">
+          <input type="number" class="quantity-box" value="1" min="1">
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <img src="product4.jpg" alt="Product 4">
+        <div class="details">
+          <p class="price">$49.99</p>
+          <p class="name">Product 4</p>
+        </div>
+        <div class="add-to-cart">
+          <input type="number" class="quantity-box" value="1" min="1">
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact Information</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p>info@example.com</p>
+      </div>
+      <div class="contact-item">
+        <h3>Phone</h3>
+        <p>+1 123-456-7890</p>
+      </div>
+      <div class="contact-item">
+        <h3>Address</h3>
+        <p>123 Main St, City, Country</p>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387263.24371266085!2d-74.2598651045872!3d40.69767058771895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250833fc00e45%3A0xbdc5e0c2da9d42cc!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1569917288583!5m2!1sen!2s" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 My Online Store. All rights reserved. | Designed by Your Name</p>
+  </footer>
+
+  <script>
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotalContainer = document.querySelector('.cart-total');
+    const placeOrderButton = document.querySelector('.place-order-button');
+    const floatingCart = document.querySelector('.floating-cart');
+
+    let cartItems = [];
+    let cartTotal = 0;
+
+    addToCartButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const quantityBox = document.querySelectorAll('.quantity-box')[index];
+        const quantity = parseInt(quantityBox.value);
+        const thumbnail = button.parentNode.parentNode;
+        const price = parseFloat(thumbnail.querySelector('.price').innerText.replace('$', ''));
+        const name = thumbnail.querySelector('.name').innerText;
+
+        if (quantity > 0) {
+          const itemTotal = price * quantity;
+          const cartItem = {
+            name: name,
+            quantity: quantity,
+            price: price,
+            total: itemTotal
+          };
+
+          cartItems.push(cartItem);
+          cartTotal += itemTotal;
+          updateFloatingCart();
+          quantityBox.value = 1;
+        }
+      });
+    });
+
+    placeOrderButton.addEventListener('click', () => {
+      if (cartItems.length > 0) {
+        alert('Order placed! Thank you for shopping with us.');
+        cartItems = [];
+        cartTotal = 0;
+        updateFloatingCart();
+      } else {
+        alert('Your cart is empty. Add some items before placing an order.');
+      }
+    });
+
+    function updateFloatingCart() {
+      if (cartItems.length > 0) {
+        cartItemsContainer.innerHTML = '';
+        cartItems.forEach((item, index) => {
+          const cartItemDiv = document.createElement('div');
+          cartItemDiv.innerHTML = `
+            <span>${item.name} x ${item.quantity}</span>
+            <button class="remove-item-button" data-index="${index}">Remove</button>
+          `;
+          cartItemsContainer.appendChild(cartItemDiv);
+        });
+
+        cartTotalContainer.innerText = `Total: $${cartTotal.toFixed(2)}`;
+        floatingCart.style.display = 'block';
+
+        const removeItemButtons = document.querySelectorAll('.remove-item-button');
+        removeItemButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const index = parseInt(button.dataset.index);
+            const itemTotal = cartItems[index].total;
+            cartItems.splice(index, 1);
+            cartTotal -= itemTotal;
+            updateFloatingCart();
+          });
+        });
+      } else {
+        floatingCart.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+
+</html>
