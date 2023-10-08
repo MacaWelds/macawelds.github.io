@@ -170,31 +170,43 @@ h2 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 5px;
+
+}
+.thumbnails-shop{
+  display: grid;
+  grid-template-columns: repeat(6, 2fr);
+  grid-gap: 5px;
+
+}
+.thumbnails-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+
+
 }
 
 .thumbnails-info {
-  position: relative;
+  background-color: #dddddd;
+  border-radius: 30px;
   color: #333333;
   font-size: 16px;
   line-height: 1.5;
-  display: flex;
   vertical-align: top;
-  margin: 20px;
+  padding: 10%;
+  margin: 5px;
   max-width: 600px;
+  height: max-content;
 
 }
 
 .thumbnails-info:hover {
- transform: translateY(50px);
-font-style: oblique;
-font-weight: bolder;
+  transform: translateY(50px);
+  font-style: oblique;
+  font-weight: bolder;
 }
 
-@media (max-width: 768px) {
-  .thumbnails {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+
 
 .thumbnail {
   display: flex;
@@ -207,11 +219,15 @@ font-weight: bolder;
   transform: translateY(-50px);
 }
 
+
 .thumbnail img {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-bottom: 1px solid #dddddd;
+  border-style: double;
+  border-color: #333333;
+  padding: 4px;
 }
 
 .thumbnail img:hover {
@@ -221,12 +237,17 @@ font-weight: bolder;
 
 .thumbnail .details {
   padding: 5px;
-  font-size: 16px;
+  font-size: 10px;
   text-align: center;
-  width: auto;
+  width: fit-content;
   background-color: rgba(0, 0, 0, 0.7);
   margin: 0;
   color: #ffffff;
+}
+.thumbnail .details:hover{
+
+  transform: scale(2);
+  
 }
 
 .thumbnail .price {
@@ -291,7 +312,11 @@ footer p {
     width: 100%;
   }
 }
-
+@media (max-width: 768px) {
+  .thumbnails {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 /* CSS styles for the floating cart */
 .floating-cart {
   position: fixed;
