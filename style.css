@@ -3,6 +3,7 @@
 }
 
 body {
+  display: flexbox;
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
@@ -187,6 +188,7 @@ h2 {
 }
 
 .thumbnails-info {
+  display: flexbox;
   background-color: #dddddd;
   border-radius: 30px;
   color: #333333;
@@ -195,7 +197,7 @@ h2 {
   vertical-align: top;
   padding: 10%;
   margin: 5px;
-  max-width: 600px;
+  max-width: 1000px;
   height: max-content;
 
 }
@@ -302,7 +304,7 @@ footer p {
   .thumbnails {
     flex-wrap: wrap;
     justify-content: space-between;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
   }
 
