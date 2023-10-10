@@ -175,7 +175,7 @@ h2 {
 }
 .thumbnails-shop{
   display: grid;
-  grid-template-columns: repeat(4, 2fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
 
 }
@@ -195,7 +195,7 @@ h2 {
   font-size: 16px;
   line-height: 1.5;
   vertical-align: top;
-  padding: 10%;
+  padding: 20px;
   margin: 5px;
   max-width: 1000px;
   height: max-content;
@@ -218,7 +218,7 @@ h2 {
 }
 
 .thumbnail:hover {
-  transform: translateY(-50px);
+  transform: translateY(50px);
 }
 
 
@@ -321,6 +321,11 @@ footer p {
   .thumbnails {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+@media screen and (min-width: 500px){
+  .thumbnail {
+    grid-template-columns: repeat(6, 1fr);
 }
 /* CSS styles for the floating cart */
 .floating-cart {
