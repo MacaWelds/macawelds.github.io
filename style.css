@@ -298,7 +298,7 @@ footer p {
   font-size: 14px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .thumbnails {
     flex-wrap: wrap;
     justify-content: space-between;
