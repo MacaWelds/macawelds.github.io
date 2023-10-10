@@ -18,7 +18,7 @@ header {
 }
 
 .Products {
-  display: flex;
+  display: flexbox;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -175,7 +175,7 @@ h2 {
 }
 .thumbnails-shop{
   display: grid;
-  grid-template-columns: repeat(6, 2fr);
+  grid-template-columns: repeat(4, 2fr);
   grid-gap: 5px;
 
 }
@@ -315,6 +315,7 @@ footer p {
   .thumbnails img {
     width: 50%;
   }
+  
 }
 @media (max-width: 768px) {
   .thumbnails {
