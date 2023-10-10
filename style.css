@@ -201,7 +201,7 @@ h2 {
 }
 
 .thumbnails-info:hover {
-  transform: translateY(50px);
+  transform: scale(2);
   font-style: oblique;
   font-weight: bolder;
 }
