@@ -14,6 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  
+  function confirmDownload(fileName) {
+    if (confirm('Do you want to download ' + fileName + '?')) {
+        // If the user clicks "OK", redirect to the download link
+        window.location.href = './Downloads/' + fileName;
+    } else {
+        event.preventDefault();
+    }
+}
+
 
   var orderDetails = [];
 
