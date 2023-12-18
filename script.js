@@ -14,7 +14,38 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  function openMathQuiz() {
+    // Generate a random math equation
+    var num1 = Math.floor(Math.random() * 10) + 1;
+    var num2 = Math.floor(Math.random() * 10) + 1;
+    var operator = ['+', '-', '*'][Math.floor(Math.random() * 3)];
 
+    // Display the equation in the modal
+    document.getElementById('mathEquation').innerText = num1 + ' ' + operator + ' ' + num2;
+
+    // Show the modal
+    document.getElementById('mathQuizModal').style.display = 'block';
+}
+
+function closeMathQuiz() {
+    // Hide the modal
+    document.getElementById('mathQuizModal').style.display = 'none';
+}
+
+function checkAnswer() {
+    // Get user's answer and the correct answer
+    var userAnswer = document.getElementById('userAnswer').value;
+    var equation = document.getElementById('mathEquation').innerText;
+    var correctAnswer = eval(equation);
+
+    // Check if the answer is correct
+    if (userAnswer == correctAnswer) {
+        // Proceed to the R18 content downloads page
+        window.location.href = './Downloads/R18Content.html';
+    } else {
+        alert('Incorrect. Try again.');
+    }
+}
 
   var orderDetails = [];
 

@@ -60,13 +60,28 @@
                 <a href="./Downloads/Momo Brock - Brock Momo wheels-1.3mf" class="thumbnail"onclick="confirmDownload('Peter Brock Wheel.stl')">
                     <img src="./Images/Maca3D/For Sale/Mag Wheels/Momo Brock Complete.JPG" alt="Peter Brock Momo Wheels">
                 </a>
-                <p>Replica of the Momo Wheel runby the Legend Peter Brock</p>
+                <p>Replica of the Momo Wheel run by the Legend Peter Brock
+                    Tyre TPU Rim PLA/PETG
+                </p>
                 </div>
                 <div class="thumbnails-info">
-                    <a href="./Downloads/Penis cap m6x0.8.3MF" class=" thumbnail">
+                    <a href="./Downloads/Penis cap m6x0.8.3MF" class=" thumbnail" onclick="confirmDownload('Penis ValveCaps')">
                         <img src="./Images/Maca3D/R18/Penis ValveCaps.JPG" alt="ValveCaps">
                     </a>
                     <p>Novelty ValveCaps R18</p>
+                </div>
+                <button onclick="openMathQuiz()">Access R18 Content</button>
+
+                <!-- The Modal -->
+                <div id="mathQuizModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close" onclick="closeMathQuiz()">&times;</span>
+                        <h2>Math Quiz</h2>
+                        <p id="mathEquation"></p>
+                        <input type="text" id="userAnswer" placeholder="Your Answer">
+                        <button onclick="checkAnswer()">Submit</button>
+                    </div>
                 </div>
 
     </section>
@@ -78,7 +93,7 @@
         <p>Papanui, Christchurch</p>
         <p>&copy; 2023 MacaWelds. All rights reserved.</p>
     </footer>
-    <script>
+    <script>     
     var downloadCounters = {};
 
     function confirmDownload(fileName, element) {
