@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MacaWelds - Free Downloads</title>
     <link rel="stylesheet" href="style.css">
+    <script src="download_counter.js"></script>
 </head>
 
 <body>
@@ -51,21 +52,23 @@
         <div class="thumbnails-gallery">
             <div class="thumbnails-info">
                 <a href="./Downloads/Cat Food Lid.STL" class="thumbnail-download"
-                    onclick="confirmDownload('Cat Food Lid.STL')">
+                    onclick="confirmDownload('Cat Food Lid.STL', this)">
                     <img src="./Images/Maca3D/House/Pets/Cat Food Lid2.JPG" alt="Cat Food Lid">
                     <img src="./Images/Maca3D/House/Pets/Cat Food Lid.JPG" alt="Cat Food Lid">
                 </a>
                 <p>Printed in TPU Fits straight onto cat food tins to keep fresh</p>
+                <span class="download-counter" id="downloadCountCatFoodLid"></span>
             </div>
             <div class="thumbnails-info">
                 <a href="./Downloads/Momo Brock - Brock Momo wheels-1.3mf" class="thumbnail-download"
-                    onclick="confirmDownload('Momo Brock - Brock Momo wheels-1.3mf')">
+                    onclick="confirmDownload('Momo Brock - Brock Momo wheels-1.3mf', this)">
                     <img src="./Images/Maca3D/For Sale/Mag Wheels/Momo Brock Complete.JPG"
                         alt="Peter Brock Momo Wheels">
                 </a>
                 <p>Replica of the Momo Wheel run by the Legend Peter Brock
                     Tyre TPU Rim PLA/PETG
                 </p>
+                <span class="download-counter" id="downloadCountMomoBrock"></span>
             </div>
 
             <!-- Image to open the math quiz modal -->
@@ -94,42 +97,18 @@
         <p>&copy; 2023 MacaWelds. All rights reserved.</p>
     </footer>
     <script>
-        function incrementDownloadCount(fileName) {
-            // Make a request to the GitHub API to update the download count
-            fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`)
-                .then(response => response.json())
-                .then(data => {
-                    // Decode the content from Base64 and parse as JSON
-                    const downloadCounts = JSON.parse(atob(data.content));
+        // Initialize download counters on page load
+        updateDownloadCounter('Cat Food Lid.STL', 'downloadCountCatFoodLid');
+        updateDownloadCounter('Momo Brock - Brock Momo wheels-1.3mf', 'downloadCountMomoBrock');
+        // Add similar lines for other downloads
 
-                    // Increment the download count for the specific file
-                    downloadCounts[fileName] = (downloadCounts[fileName] || 0) + 1;
-
-                    // Encode the updated content to Base64
-                    const updatedContent = btoa(JSON.stringify(downloadCounts));
-
-                    // Make another request to update the file using GitHub API
-                    return fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': 'Bearer ${{ secrets.ACCESS_TOKEN }}',
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            message: 'Increment download count',
-                            content: updatedContent,
-                            sha: data.sha,
-                        }),
-                    });
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Log the updated download count (optional)
-                    console.log(`Download count for ${fileName}: ${downloadCounts[fileName]}`);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        // Attach event listeners to download links
+        function confirmDownload(fileName, element) {
+            if (confirm('Do you want to download ' + fileName + '?')) {
+                incrementDownloadCount(fileName, element);
+            } else {
+                event.preventDefault();
+            }
         }
     </script>
 </body>
