@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacaWelds -</title>
+    <title>MacaWelds - Free Downloads</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <script src="script.js"></script>
+
     <header>
         <nav>
             <ul class="menu">
@@ -50,39 +50,39 @@
         <h2>Downloads</h2>
         <div class="thumbnails-gallery">
             <div class="thumbnails-info">
-                <a href="./Downloads/Cat Food Lid.STL" class="thumbnail"onclick="confirmDownload('Cat Food Lid.STL')">
+                <a href="./Downloads/Cat Food Lid.STL" class="thumbnail-download"
+                    onclick="confirmDownload('Cat Food Lid.STL')">
                     <img src="./Images/Maca3D/House/Pets/Cat Food Lid2.JPG" alt="Cat Food Lid">
                     <img src="./Images/Maca3D/House/Pets/Cat Food Lid.JPG" alt="Cat Food Lid">
                 </a>
                 <p>Printed in TPU Fits straight onto cat food tins to keep fresh</p>
             </div>
             <div class="thumbnails-info">
-                <a href="./Downloads/Momo Brock - Brock Momo wheels-1.3mf" class="thumbnail"onclick="confirmDownload('Peter Brock Wheel.stl')">
-                    <img src="./Images/Maca3D/For Sale/Mag Wheels/Momo Brock Complete.JPG" alt="Peter Brock Momo Wheels">
+                <a href="./Downloads/Momo Brock - Brock Momo wheels-1.3mf" class="thumbnail-download"
+                    onclick="confirmDownload('Momo Brock - Brock Momo wheels-1.3mf')">
+                    <img src="./Images/Maca3D/For Sale/Mag Wheels/Momo Brock Complete.JPG"
+                        alt="Peter Brock Momo Wheels">
                 </a>
                 <p>Replica of the Momo Wheel run by the Legend Peter Brock
                     Tyre TPU Rim PLA/PETG
                 </p>
-                </div>
-                <div class="thumbnails-info">
-                    <a href="./Downloads/Penis cap m6x0.8.3MF" class=" thumbnail" onclick="confirmDownload('Penis ValveCaps')">
-                        <img src="./Images/Maca3D/R18/Penis ValveCaps.JPG" alt="ValveCaps">
-                    </a>
-                    <p>Novelty ValveCaps R18</p>
-                </div>
-                <button onclick="openMathQuiz()">Access R18 Content</button>
+            </div>
 
-                <!-- The Modal -->
-                <div id="mathQuizModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close" onclick="closeMathQuiz()">&times;</span>
-                        <h2>Math Quiz</h2>
-                        <p id="mathEquation"></p>
-                        <input type="text" id="userAnswer" placeholder="Your Answer">
-                        <button onclick="checkAnswer()">Submit</button>
-                    </div>
-                </div>
+            <!-- Image to open the math quiz modal -->
+            <img src="./Images/backgrounds/R18.png" alt="R18 Content" onclick="openMathQuiz()" style="cursor: pointer;">
+        </div>
+
+        <!-- The Modal -->
+        <div id="mathQuizModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" onclick="closeMathQuiz()">&times;</span>
+                <h2>Math Quiz</h2>
+                <p id="mathEquation"></p>
+                <input type="text" id="userAnswer" placeholder="Your Answer">
+                <button onclick="checkAnswer()">Submit</button>
+            </div>
+        </div>
 
     </section>
 
@@ -93,57 +93,44 @@
         <p>Papanui, Christchurch</p>
         <p>&copy; 2023 MacaWelds. All rights reserved.</p>
     </footer>
-    <script>     
-    var downloadCounters = {};
+    <script>
+ function incrementDownloadCount(fileName) {
+    // Make a request to the GitHub API to update the download count
+    fetch(`https://api.github.com/repos/yourusername/your-repo/contents/download_counter.json`)
+        .then(response => response.json())
+        .then(data => {
+            // Decode the content from Base64 and parse as JSON
+            const downloadCounts = JSON.parse(atob(data.content));
 
-    function confirmDownload(fileName, element) {
-        if (confirm('Do you want to download ' + fileName + '?')) {
-            // Make a request to the download counter script
-            fetch('./download_counter.php?file=' + fileName)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Update the download counter in the HTML
-                    updateDownloadCounter(element, fileName, data.count);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            // Increment the download count for the specific file
+            downloadCounts[fileName] = (downloadCounts[fileName] || 0) + 1;
 
-            // If the user clicks "OK", redirect to the download link
-            window.location.href = './Downloads/' + fileName;
-        } else {
-            event.preventDefault();
-        }
-    }
+            // Encode the updated content to Base64
+            const updatedContent = btoa(JSON.stringify(downloadCounts));
 
-    function updateDownloadCounter(element, fileName, count) {
-        // Check if the counter element already exists
-        var counterElement = element.querySelector('.download-counter');
-
-        // If the counter element doesn't exist, create it
-        if (!counterElement) {
-            counterElement = document.createElement('span');
-            counterElement.className = 'download-counter';
-            element.appendChild(counterElement);
-        }
-
-        // Update the counter text
-        counterElement.textContent = '(' + count + ' downloads)';
-    }
-
-    // Attach event listeners to download links
-    var downloadLinks = document.querySelectorAll('.thumbnail');
-    downloadLinks.forEach(function (link) {
-        link.addEventListener('click', function (event) {
-            confirmDownload(link.getAttribute('data-file'), link);
+            // Make another request to update the file using GitHub API
+            return fetch(`https://api.github.com/repos/yourusername/your-repo/contents/download_counter.json`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'Bearer YOUR_PERSONAL_ACCESS_TOKEN',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: 'Increment download count',
+                    content: updatedContent,
+                    sha: data.sha,
+                }),
+            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Log the updated download count (optional)
+            console.log(`Download count for ${fileName}: ${downloadCounts[fileName]}`);
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    });
-
+}
     </script>
 </body>
 
