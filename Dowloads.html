@@ -112,7 +112,7 @@
                     return fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`, {
                         method: 'PUT',
                         headers: {
-                            'Authorization': 'token ${{ secrets.ACCESS_TOKEN }}',
+                            'Authorization': 'Bearer ${{ secrets.ACCESS_TOKEN }}',
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
