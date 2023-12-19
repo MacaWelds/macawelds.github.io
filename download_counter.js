@@ -38,6 +38,8 @@ async function fetchDownloadCounts() {
         }
 
         releases.forEach(release => {
+            console.log('Release:', release.tag_name); // Log the tag name for each release
+
             release.assets.forEach(asset => {
                 const fileName = asset.name;
                 const countElementId = 'downloadCount' + fileName.replace(/\s+/g, '');
