@@ -94,43 +94,43 @@
         <p>&copy; 2023 MacaWelds. All rights reserved.</p>
     </footer>
     <script>
- function incrementDownloadCount(fileName) {
-    // Make a request to the GitHub API to update the download count
-    fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`)
-        .then(response => response.json())
-        .then(data => {
-            // Decode the content from Base64 and parse as JSON
-            const downloadCounts = JSON.parse(atob(data.content));
+        function incrementDownloadCount(fileName) {
+            // Make a request to the GitHub API to update the download count
+            fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`)
+                .then(response => response.json())
+                .then(data => {
+                    // Decode the content from Base64 and parse as JSON
+                    const downloadCounts = JSON.parse(atob(data.content));
 
-            // Increment the download count for the specific file
-            downloadCounts[fileName] = (downloadCounts[fileName] || 0) + 1;
+                    // Increment the download count for the specific file
+                    downloadCounts[fileName] = (downloadCounts[fileName] || 0) + 1;
 
-            // Encode the updated content to Base64
-            const updatedContent = btoa(JSON.stringify(downloadCounts));
+                    // Encode the updated content to Base64
+                    const updatedContent = btoa(JSON.stringify(downloadCounts));
 
-            // Make another request to update the file using GitHub API
-            return fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': 'Bearer ${{ secrets.ACCESS_TOKEN }}',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: 'Increment download count',
-                    content: updatedContent,
-                    sha: data.sha,
-                }),
-            });
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Log the updated download count (optional)
-            console.log(`Download count for ${fileName}: ${downloadCounts[fileName]}`);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
+                    // Make another request to update the file using GitHub API
+                    return fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': 'token ${{ secrets.ACCESS_TOKEN }}',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: 'Increment download count',
+                            content: updatedContent,
+                            sha: data.sha,
+                        }),
+                    });
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Log the updated download count (optional)
+                    console.log(`Download count for ${fileName}: ${downloadCounts[fileName]}`);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
     </script>
 </body>
 
