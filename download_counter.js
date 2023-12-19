@@ -26,12 +26,21 @@ function updateDownloadCounter(fileName, countElementId) {
 async function fetchDownloadCounts() {
     try {
         const response = await fetch('https://api.github.com/repos/MacaWelds/macawelds/releases');
+
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status} - ${response.statusText}`);
+        }
+
         const releases = await response.json();
+
+        if (!Array.isArray(releases)) {
+            throw new Error('GitHub API response does not contain an array of releases.');
+        }
 
         releases.forEach(release => {
             release.assets.forEach(asset => {
                 const fileName = asset.name;
-                const countElementId = `downloadCount${fileName.replace(/\s+/g, '')}`;
+                const countElementId = 'downloadCount' + fileName.replace(/\s+/g, '');
                 const count = asset.download_count || 0;
 
                 incrementDownloadCount(fileName);
@@ -39,8 +48,7 @@ async function fetchDownloadCounts() {
             });
         });
     } catch (error) {
-        console.error('Error fetching download counts:',
-            error);
+        console.error('Error fetching download counts:', error);
     }
 }
 
