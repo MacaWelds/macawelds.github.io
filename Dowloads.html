@@ -96,7 +96,7 @@
     <script>
  function incrementDownloadCount(fileName) {
     // Make a request to the GitHub API to update the download count
-    fetch(`https://api.github.com/repos/yourusername/your-repo/contents/download_counter.json`)
+    fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`)
         .then(response => response.json())
         .then(data => {
             // Decode the content from Base64 and parse as JSON
@@ -109,10 +109,10 @@
             const updatedContent = btoa(JSON.stringify(downloadCounts));
 
             // Make another request to update the file using GitHub API
-            return fetch(`https://api.github.com/repos/yourusername/your-repo/contents/download_counter.json`, {
+            return fetch(`https://api.github.com/repos/MacaWelds/macawelds/contents/download_counter.json`, {
                 method: 'PUT',
                 headers: {
-                    'Authorization': 'Bearer YOUR_PERSONAL_ACCESS_TOKEN',
+                    'Authorization': 'Bearer ${{ secrets.ACCESS_TOKEN }}',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
