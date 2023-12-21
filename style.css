@@ -17,11 +17,7 @@ header {
   text-align: center;
 }
 
-.Products {
-  display: flexbox;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+
 
 .menu {
   list-style-type: none;
@@ -107,6 +103,7 @@ h2 {
   font-weight: bolder
 }
 
+
 .contact-info {
   display: flex;
   flex-wrap: wrap;
@@ -172,7 +169,7 @@ h2 {
 
 .thumbnails {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2%;
 }
 
@@ -191,7 +188,7 @@ h2 {
 }
 
 .thumbnails-info {
-  display: flexbox;
+  display: inline-flexbox;
   background-color: #dddddd;
   border-radius: 30px;
   color: #333333;
@@ -287,12 +284,15 @@ h2 {
 }
 
 .thumbnail .details {
+  display: inline-flexbox;
   padding: 5px;
   font-size: 10px;
   text-align: center;
   width: fit-content;
   background-color: rgba(0, 0, 0, 0.7);
-  margin: 0;
+  padding: 5%;
+  margin: 5%;
+  border-radius: 40%;
   color: #ffffff67;
 }
 
@@ -306,6 +306,12 @@ h2 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.Products {
+  display: block;
+  padding: 10%;
+
 }
 
 .add-to-cart {
@@ -364,9 +370,6 @@ footer p {
     max-width: calc(50% - 10px);
   }
 
-  .thumbnails img {
-    width: 50%;
-  }
 
 }
 
