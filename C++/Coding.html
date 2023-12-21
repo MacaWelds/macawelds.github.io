@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacaWelds | MacaDesigns | Maca3D</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Add styles specific to the code container */
+        #code-container {
+            width: 80%;
+            margin: 20px auto;
+            overflow-y: auto;
+            max-height: 400px;
+            border: 2px solid #000000;
+            padding: 10px;
+            background-color: #fff;
+            /* Adjust background color as needed */
+        }
+
+        .code {
+            display: none;
+        }
+
+        .code.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./MacaWelds.html">Welding & Engineering</a>
+                    <ul>
+                        <li><a href="#welding-services">Welding Services</a></li>
+                        <li><a href="#engineering-services">Engineering Services</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./MacaDesign.html">SolidWorks Drawings</a>
+                    <ul>
+                        <li><a href="#assembly-designs">Assembly Designs</a></li>
+                        <li><a href="./MacaDesign.html">Engineering Drawings</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="./maca3d.html">3D Printing</a>
+                    <ul>
+                        <li><a href="./Pokemon.html">Pokemon</a></li>
+                        <li><a href="./Gaming.html">Gaming Mods</a></li>
+                        <li><a href="./FunctionalPrints.html">Functional Prints</a></li>
+                        <li><a href="./maca3d4sale.html">3D Print Shop</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Dowloads.html">Downloads</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1 class="website-name">MacaWelds | MacaDesigns | Maca3D</h1>
+    </header>
+
+    <div id="code-container">
+        <!-- Code 1 -->
+        <div id="code1" class="code active">
+            <pre>
+                <code>
+                    // Your C++ code here
+                    #include <iostream>
+
+                    int main() {
+                        std::cout << "Hello, World!" << std::endl;
+                        return 0;
+                    }
+                </code>
+            </pre>
+        </div>
+
+        <!-- Code 2 -->
+        <div id="code2" class="code">
+            <pre>
+                <code>
+                    // Another C++ code
+                    #include <iostream>
+
+                    int main() {
+                        std::cout << "This is another C++ code." << std::endl;
+                        return 0;
+                    }
+                </code>
+            </pre>
+        </div>
+
+        <!-- Add more code sections as needed -->
+
+    </div>
+
+    <!-- Add links or buttons to switch between codes -->
+    <button onclick="showCode('code1')">Esp32 Dht11</button><br>
+    <button onclick="showCode('code2')">Show Code 2</button>
+    <!-- Add more buttons or links as needed -->
+    <br> <br> <br> <br> <br> <br> <br>
+
+    <footer class="footer">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:Maca-3D@outlook.com">Maca-3D@outlook.com</a></p>
+        <p>Phone: <a href="tel:+64278909399">+64 27 890 9399</a></p>
+        <p>Papanui, Christchurch</p>
+        <p>&copy; 2023 Maca-3D. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showCode(codeId) {
+            // Hide all code sections
+            var codes = document.querySelectorAll('.code');
+            codes.forEach(function (code) {
+                code.classList.remove('active');
+            });
+
+            // Show the selected code
+            var selectedCode = document.getElementById(codeId);
+            if (selectedCode) {
+                selectedCode.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
