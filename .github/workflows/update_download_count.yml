@@ -1,0 +1,22 @@
+name: Update Download Count
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  updateDownloadCount:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2.5.0
+
+      - name: Update Download Count
+        run: |
+          echo '{}' > download_counter.json
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add download_counter.json
+          git commit -m "Reset download counts [skip ci]" || true
+          git push

@@ -142,3 +142,4 @@ document.addEventListener('DOMContentLoaded', function () {
   // Load cart data from local storage when the page loads
   loadCartFromLocalStorage();
 });
+
