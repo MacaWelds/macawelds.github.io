@@ -171,12 +171,6 @@ h2 {
   -ms-grid-column-align: center;
 }
 
-.thumbnails {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2%;
-  -ms-grid-column-align: center;
-}
 
 .thumbnails-shop {
   display: grid;
