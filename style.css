@@ -25,7 +25,7 @@ header {
 
 .menu li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 1%;
   position: relative;
 }
 
@@ -48,18 +48,10 @@ header {
   left: 0;
   background-color: #eaeaea;
   padding: 10px 0;
+  border-radius: 15%;
 }
 
-.menu li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #eaeaea;
-  padding: 10px;
-  z-index: 1;
-  min-width: 150px;
-}
+
 
 .menu li:hover ul {
   display: block;
@@ -67,20 +59,27 @@ header {
 
 .menu ul li {
   display: block;
-  margin: 0;
 }
 
 .menu ul li a {
   color: #333333;
   font-weight: normal;
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 10% 20%;
 }
 
 .menu ul li a:hover {
   color: #ff9900;
 }
 
+.SubMenu li {
+
+  display: none;
+}
+.SubMenu li:hover {
+
+  display: block;
+}
 .website-name {
   font-size: 28px;
   margin-top: 30px;
@@ -266,7 +265,9 @@ h2 {
   text-align: center;
   border-style: double;
   border-color: #333333;
-  border-radius: 10%;
+  border-radius: 30%;
+  background-color: rgb(255, 255, 255, 0.4);
+  padding: 5%;
 }
 
 .thumbnail:hover {
@@ -278,9 +279,7 @@ h2 {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-style: double;
-  border-color: #333333;
-  border-radius: 10%;
+
   padding: 10%;
 }
 
@@ -291,15 +290,14 @@ h2 {
 
 .thumbnail .details {
   display: inline-flexbox;
-  padding: 5px;
   font-size: 10px;
   text-align: center;
   width: fit-content;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 5%;
   margin: 5%;
   border-radius: 20%;
-  color: #ffffff67;
+  color: rgba(255, 255, 255);
 }
 
 .thumbnail .details:hover {
@@ -345,7 +343,7 @@ h2 {
 }
 */
 .thumbnail-download .details {
-  padding: 5px;
+  padding: 10px;
   font-size: 10px;
   text-align: center;
   width: fit-content;
@@ -359,6 +357,7 @@ h2 {
   transform: scale(1);
 
 }
+
 .Products {
   display: block;
   padding: 10%;
