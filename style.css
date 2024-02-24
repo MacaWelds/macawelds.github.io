@@ -5,8 +5,6 @@
 body {
   display: flexbox;
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #0a810a63;
 }
 
@@ -357,8 +355,9 @@ border-radius: 20%;
 }
 
 .Products {
-  display: block;
+  display: flex;
   padding: 5%;
+  height: fit-content;
 
 }
 
