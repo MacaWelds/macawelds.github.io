@@ -173,8 +173,8 @@ h2 {
 .thumbnails-shop {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2%;
-
+  /* grid-gap: 2%; */
+  /* margin-bottom: 10%; */
 }
 
 .thumbnails-gallery {
@@ -357,8 +357,7 @@ border-radius: 20%;
 .Products {
   display: flex;
   padding: 5%;
-  height: fit-content;
-
+  height: max-content;
 }
 
 .add-to-cart {
