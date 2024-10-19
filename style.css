@@ -193,7 +193,7 @@ h2 {
   vertical-align: top;
   padding: 20px;
   margin: 5px;
-  max-width: 1000px;
+  max-width: max-content;
   height: max-content;
 
 }
